@@ -1,0 +1,23 @@
+﻿De volgende onderdelen moeten in de DLL:
+
+x	Tijdmeting
+x	Gebruik Generics
+x	Arraylist
+x	BubbleSort (H3)
+x	InsertionSort (H3)
+x	SmartBubbleSort (H3) 
+x	BinarySearch (H4)
+x	MinMax (H4)
+x	SequentialSearch (H4)
+x	Queue (H5)
+x	PriorityQueue (H5)
+x	Stack (H5)
+	BucketHash (H10)
+	LinearHash (H10)
+	QuadraticHash (H10)
+	Circularlist (H11)
+	DoublyLinkedList (H11)
+	DoublyNode (H11)
+	Iterator (H11)
+	LinkedList (H11)
+	BinarySearchTree (H12)
