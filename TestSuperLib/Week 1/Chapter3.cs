@@ -157,8 +157,8 @@ namespace TestSuperLib.Week_1
 
             var smartBubbleSortAction = Timing.Time(() =>
             {
-                return new NoResult();
                 SmartBubbleSort.Sort(ref smartBubbleSort);
+                return new NoResult();
             });
 
             var insertionSortAction = Timing.Time(() =>

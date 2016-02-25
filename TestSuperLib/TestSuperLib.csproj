@@ -54,6 +54,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="testSortingAlgorithms.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="testSortingAlgorithms.Designer.cs">
+      <DependentUpon>testSortingAlgorithms.cs</DependentUpon>
+    </Compile>
     <Compile Include="Week 1\Chapter3.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -93,6 +99,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="testSortingAlgorithms.resx">
+      <DependentUpon>testSortingAlgorithms.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Week 1\Chapter3.resx">
       <DependentUpon>Chapter3.cs</DependentUpon>
     </EmbeddedResource>

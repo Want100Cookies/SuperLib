@@ -41,5 +41,11 @@ namespace TestSuperLib
             Chapter4 chapter4 = new Chapter4();
             chapter4.Show(Owner);
         }
+
+        private void buttonTestSorting_Click(object sender, EventArgs e)
+        {
+            testSortingAlgorithms form = new testSortingAlgorithms();
+            form.ShowDialog();
+        }
     }
 }
