@@ -46,7 +46,7 @@ namespace TestSuperLib
             log("Original array:\r\n");
             foreach (var v in array)
             {
-                log(v.ToString());
+                log(v + " ");
             }
             log("\r\n");
 
