@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SuperLib.Sort;
 using TestSuperLib.Week_1;
 
 namespace TestSuperLib
@@ -45,6 +46,12 @@ namespace TestSuperLib
         private void buttonTestSorting_Click(object sender, EventArgs e)
         {
             testSortingAlgorithms form = new testSortingAlgorithms();
+            form.ShowDialog();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            testSearchingAlgorithms form = new testSearchingAlgorithms();
             form.ShowDialog();
         }
     }
