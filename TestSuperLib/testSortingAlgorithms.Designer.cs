@@ -54,19 +54,9 @@
             0,
             0,
             0});
-            this.numericUpDownNoOfElements.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
             this.numericUpDownNoOfElements.Name = "numericUpDownNoOfElements";
             this.numericUpDownNoOfElements.Size = new System.Drawing.Size(135, 22);
             this.numericUpDownNoOfElements.TabIndex = 0;
-            this.numericUpDownNoOfElements.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
             // 
             // label1
             // 
@@ -93,9 +83,9 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(12, 110);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(65, 17);
+            this.label2.Size = new System.Drawing.Size(73, 17);
             this.label2.TabIndex = 3;
-            this.label2.Text = "Datatype";
+            this.label2.Text = "Datatype: ";
             // 
             // textBoxResults
             // 
