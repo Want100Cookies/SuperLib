@@ -13,9 +13,9 @@ using SuperLib.Sort;
 
 namespace TestSuperLib
 {
-    public partial class testSortingAlgorithms : Form
+    public partial class TestSortingAlgorithms : Form
     {
-        public testSortingAlgorithms()
+        public TestSortingAlgorithms()
         {
             InitializeComponent();
 
@@ -38,97 +38,113 @@ namespace TestSuperLib
             int[] sortedArray = new int[size];
 
             Random generator = new Random();
+            Log("Original array:\r\n");
             for (int i = 0; i < (numericUpDownNoOfElements.Value); i++)
             {
                 array[i] = generator.Next((int) numericUpDownRangeFrom.Value, (int) numericUpDownRangeTo.Value);
+                Log(array[i] + " ");
                 sortedArray[i] = i;
             }
-            log("Original array:\r\n");
-            foreach (var v in array)
-            {
-                log(v + " ");
-            }
-            log("\r\n");
+            Log("\r\n");
 
-            log("Test results (" + array.Count() + " ints - random " + numericUpDownRangeFrom.Value + " - " +
+            Log("Test results (" + array.Count() + " ints - random " + numericUpDownRangeFrom.Value + " - " +
                 numericUpDownRangeTo.Value + "): \r\n");
+
+            bool doBreak = true;
 
             switch (comboBoxTypeAlgorithm.SelectedIndex)
             {
                 /*
                 * note: efficiency is real...
+                * pascal -> Let's make it more efficient
                 */
+
                 case 0: //all:
-                    int[] copy1 = (int[])array.Clone();
-                    int[] copy2 = (int[])array.Clone();
-                    int[] copy3 = (int[])array.Clone();
-                    int[] copy4 = (int[])array.Clone();
-                    testBubbleSort(copy1);
-                    testInsertionSort(copy2);
-                    testSelectionSort(copy3);
-                    testSmartBubbleSort(copy4);
-                    break;
-               case 1: //bubble sort
+                    doBreak = false;
+                    goto case 1;
+
+                case 1: //bubble sort
                     int[] copy5 = (int[])array.Clone();
-                    testBubbleSort(copy5);
-                    break;
+                    TestBubbleSort(copy5);
+                    if (chkBoxViewResult.Checked) LogResult(copy5, "Bubble sort");
+                    if (doBreak) break;
+                    goto case 2;
+
                 case 2://insertion sort
                     int[] copy6 = (int[])array.Clone();
-                    testInsertionSort(copy6);
-                    break;
+                    TestInsertionSort(copy6);
+                    if (chkBoxViewResult.Checked) LogResult(copy6, "Insertion sort");
+                    if (doBreak) break;
+                    goto case 3;
+
                 case 3: //selection sort
                     int[] copy7 = (int[])array.Clone();
-                    testSelectionSort(copy7);
-                    break;
+                    TestSelectionSort(copy7);
+                    if (chkBoxViewResult.Checked) LogResult(copy7, "Selection sort");
+                    if (doBreak) break;
+                    goto case 4;
+
                 case 4: //Smart bubble sort
                     int[] copy8 = (int[])array.Clone();
-                    testSmartBubbleSort(copy8);
+                    TestSmartBubbleSort(copy8);
+                    if (chkBoxViewResult.Checked) LogResult(copy8, "Smart bubble sort");
                     break;
+
                 default:
                     MessageBox.Show("Error in switch case statement of choosing the kind of sorting algorithm.");
                     break;
             }
         }
 
-        private void testBubbleSort(int[] array)
+        private void TestBubbleSort(int[] array)
         {
             var bubbleSortRandAction = Timing.Time(() => { BubbleSort.Sort(ref array); return new NoResult(); });
-            log("BubbleSort:" + $"{bubbleSortRandAction.Time:0.00000000}" + "\r\n");
+            Log("BubbleSort:\t\t" + $"{bubbleSortRandAction.Time:0.00000000}" + "\r\n");
         }
 
-        private void testInsertionSort(int[] array)
+        private void TestInsertionSort(int[] array)
         {
-           var InsertionSortRandAction = Timing.Time(() =>
+           var insertionSortRandAction = Timing.Time(() =>
             {
                 SelectionSort.Sort(ref array);
                 return new NoResult();
             });
-            log("InsertionSort:" + $"{InsertionSortRandAction.Time:0.00000000}" + "\r\n");
+            Log("InsertionSort:\t\t" + $"{insertionSortRandAction.Time:0.00000000}" + "\r\n");
         }
 
-        private void testSelectionSort(int[] array)
+        private void TestSelectionSort(int[] array)
         {
-            var SelectionSortRandAction = Timing.Time(() =>
+            var selectionSortRandAction = Timing.Time(() =>
             {
                 SelectionSort.Sort(ref array);
                 return new NoResult();
             });
-            log("Selection Sort:" + $"{SelectionSortRandAction.Time:0.00000000}" + "\r\n");
+            Log("Selection Sort:\t\t" + $"{selectionSortRandAction.Time:0.00000000}" + "\r\n");
         }
 
-        private void testSmartBubbleSort(int[] array)
+        private void TestSmartBubbleSort(int[] array)
         {
             var smartBubbleSortRandAction = Timing.Time(() =>
             {
                 SmartBubbleSort.Sort(ref array);
                 return new NoResult();
             });
-            log("Smart BubbleSort:" + $"{smartBubbleSortRandAction.Time:0.00000000}" + "\r\n");
+            Log("Smart BubbleSort:\t\t" + $"{smartBubbleSortRandAction.Time:0.00000000}" + "\r\n");
         }
 
-        private void log(String value)
+        private void Log(string value)
         {
             textBoxResults.AppendText(value);
+        }
+
+        private void LogResult(int[] array, string sortName)
+        {
+            Log("Resulting array for " + sortName + ":\r\n");
+            foreach (var v in array)
+            {
+                Log(v + " ");
+            }
+            Log("\r\n");
         }
 
         private void numericUpDownRangeFrom_ValueChanged(object sender, EventArgs e)

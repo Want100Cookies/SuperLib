@@ -45,13 +45,13 @@ namespace TestSuperLib
 
         private void buttonTestSorting_Click(object sender, EventArgs e)
         {
-            testSortingAlgorithms form = new testSortingAlgorithms();
+            TestSortingAlgorithms form = new TestSortingAlgorithms();
             form.ShowDialog();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            testSearchingAlgorithms form = new testSearchingAlgorithms();
+            TestSearchingAlgorithms form = new TestSearchingAlgorithms();
             form.ShowDialog();
         }
     }
