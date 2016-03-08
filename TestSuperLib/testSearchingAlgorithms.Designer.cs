@@ -1,6 +1,6 @@
-﻿namespace SuperLib.Sort
+﻿namespace TestSuperLib
 {
-    partial class testSearchingAlgorithms
+    partial class TestSearchingAlgorithms
     {
         /// <summary>
         /// Required designer variable.
@@ -177,7 +177,7 @@
             this.Controls.Add(this.buttonSearch);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.numericUpDownNoOfElements);
-            this.Name = "testSearchingAlgorithms";
+            this.Name = "TestSearchingAlgorithms";
             this.Text = "testSearchingAlgorithms";
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownNoOfElements)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownValueToSearch)).EndInit();

@@ -57,21 +57,10 @@
     <Compile Include="Sort\BubbleSort.cs" />
     <Compile Include="Sort\InsertionSort.cs" />
     <Compile Include="Sort\SelectionSort.cs" />
-    <Compile Include="Sort\testSearchingAlgorithms.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Sort\testSearchingAlgorithms.Designer.cs">
-      <DependentUpon>testSearchingAlgorithms.cs</DependentUpon>
-    </Compile>
     <Compile Include="Timing.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Readme.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Sort\testSearchingAlgorithms.resx">
-      <DependentUpon>testSearchingAlgorithms.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
