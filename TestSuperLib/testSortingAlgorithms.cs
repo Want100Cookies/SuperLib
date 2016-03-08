@@ -26,6 +26,11 @@ namespace TestSuperLib
             numericUpDownNoOfElements.Value = 100;
         }
 
+        /// <summary>
+        /// Sort the array, show results of time measurement.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonSort_Click(object sender, EventArgs e)
         {
             //soort sorteren bepalen.
@@ -54,11 +59,6 @@ namespace TestSuperLib
 
             switch (comboBoxTypeAlgorithm.SelectedIndex)
             {
-                /*
-                * note: efficiency is real...
-                * pascal -> Let's make it more efficient
-                */
-
                 case 0: //all:
                     doBreak = false;
                     goto case 1;
@@ -96,13 +96,21 @@ namespace TestSuperLib
             }
         }
 
-        private void TestBubbleSort(int[] array)
+        /// <summary>
+        /// Test the bubble sort algorithm, show results on screen.
+        /// </summary>
+        /// <param name="array"></param>
+        private void TestBubbleSort<T>(T[] array) where T : IComparable<T>
         {
             var bubbleSortRandAction = Timing.Time(() => { BubbleSort.Sort(ref array); return new NoResult(); });
             Log("BubbleSort:\t\t" + $"{bubbleSortRandAction.Time:0.00000000}" + "\r\n");
         }
 
-        private void TestInsertionSort(int[] array)
+        /// <summary>
+        /// Test the insertion sort algorithm, show results on screen.
+        /// </summary>
+        /// <param name="array"></param>
+        private void TestInsertionSort<T>(T[] array) where T : IComparable<T>
         {
            var insertionSortRandAction = Timing.Time(() =>
             {
@@ -112,7 +120,11 @@ namespace TestSuperLib
             Log("InsertionSort:\t\t" + $"{insertionSortRandAction.Time:0.00000000}" + "\r\n");
         }
 
-        private void TestSelectionSort(int[] array)
+        /// <summary>
+        /// Test the selection sort algorithm, show results on screen.
+        /// </summary>
+        /// <param name="array"></param>
+        private void TestSelectionSort<T>(T[] array) where T : IComparable<T>
         {
             var selectionSortRandAction = Timing.Time(() =>
             {
@@ -122,7 +134,11 @@ namespace TestSuperLib
             Log("Selection Sort:\t\t" + $"{selectionSortRandAction.Time:0.00000000}" + "\r\n");
         }
 
-        private void TestSmartBubbleSort(int[] array)
+        /// <summary>
+        /// Test the smart bubble sort algorithm, show results on screen.
+        /// </summary>
+        /// <param name="array"></param>
+        private void TestSmartBubbleSort<T>(T[] array) where T:IComparable<T>
         {
             var smartBubbleSortRandAction = Timing.Time(() =>
             {
@@ -132,12 +148,21 @@ namespace TestSuperLib
             Log("Smart BubbleSort:\t\t" + $"{smartBubbleSortRandAction.Time:0.00000000}" + "\r\n");
         }
 
+        /// <summary>
+        /// Add 'value' to the textbox 'textBoxResults'.
+        /// </summary>
+        /// <param name="value"></param>
         private void Log(string value)
         {
             textBoxResults.AppendText(value);
         }
 
-        private void LogResult(int[] array, string sortName)
+        /// <summary>
+        /// Shows whole array on screen.
+        /// </summary>
+        /// <param name="array"></param>
+        /// <param name="sortName"></param>
+        private void LogResult<T>(T[] array, string sortName) where T: IComparable<T>
         {
             Log("Resulting array for " + sortName + ":\r\n");
             foreach (var v in array)
@@ -147,6 +172,11 @@ namespace TestSuperLib
             Log("\r\n");
         }
 
+        /// <summary>
+        /// Manage that the 'from' value is always smaller than the 'to' value.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void numericUpDownRangeFrom_ValueChanged(object sender, EventArgs e)
         {
             if (numericUpDownRangeFrom.Value >= numericUpDownRangeTo.Value)
@@ -155,14 +185,25 @@ namespace TestSuperLib
             }
         }
 
+        /// <summary>
+        /// Manage that the 'from' value is always smaller than the 'to' value.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void numericUpDownRangeTo_ValueChanged(object sender, EventArgs e)
         {
             numericUpDownRangeFrom_ValueChanged(sender,e);
         }
 
+        /// <summary>
+        /// Responsiveness.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void testSortingAlgorithms_Resize(object sender, EventArgs e)
         {
             textBoxResults.Width = Width - 275;
+            textBoxResults.Height = Height - 65;
         }
     }
 }
