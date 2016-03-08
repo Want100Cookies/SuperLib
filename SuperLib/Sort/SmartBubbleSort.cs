@@ -13,7 +13,7 @@ namespace SuperLib.Sort
 
             for (int outer = arr.Length - 1; outer >= 1; outer--)
             {
-                oldArr = arr;
+                oldArr = (T[])arr.Clone();
                 for (int inner = 0; inner <= outer - 1; inner++)
                 {
                     if (arr[inner].CompareTo(arr[inner + 1]) > 0) // CompareTo less than zero: preceeds, zero: same spot, more than zero: follows this object
