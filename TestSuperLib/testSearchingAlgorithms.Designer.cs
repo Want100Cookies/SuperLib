@@ -39,6 +39,7 @@
             this.numericUpDownRangeFrom = new System.Windows.Forms.NumericUpDown();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.btnGenerate = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownNoOfElements)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownValueToSearch)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRangeTo)).BeginInit();
@@ -47,7 +48,8 @@
             // 
             // numericUpDownNoOfElements
             // 
-            this.numericUpDownNoOfElements.Location = new System.Drawing.Point(153, 9);
+            this.numericUpDownNoOfElements.Location = new System.Drawing.Point(172, 11);
+            this.numericUpDownNoOfElements.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.numericUpDownNoOfElements.Maximum = new decimal(new int[] {
             100000,
             0,
@@ -59,7 +61,7 @@
             0,
             0});
             this.numericUpDownNoOfElements.Name = "numericUpDownNoOfElements";
-            this.numericUpDownNoOfElements.Size = new System.Drawing.Size(120, 22);
+            this.numericUpDownNoOfElements.Size = new System.Drawing.Size(135, 26);
             this.numericUpDownNoOfElements.TabIndex = 0;
             this.numericUpDownNoOfElements.Value = new decimal(new int[] {
             1,
@@ -70,17 +72,18 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 12);
+            this.label1.Location = new System.Drawing.Point(14, 15);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(135, 17);
+            this.label1.Size = new System.Drawing.Size(152, 20);
             this.label1.TabIndex = 1;
             this.label1.Text = "Number of elements";
             // 
             // buttonSearch
             // 
-            this.buttonSearch.Location = new System.Drawing.Point(15, 176);
+            this.buttonSearch.Location = new System.Drawing.Point(18, 284);
+            this.buttonSearch.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonSearch.Name = "buttonSearch";
-            this.buttonSearch.Size = new System.Drawing.Size(75, 23);
+            this.buttonSearch.Size = new System.Drawing.Size(84, 29);
             this.buttonSearch.TabIndex = 2;
             this.buttonSearch.Text = "Search";
             this.buttonSearch.UseVisualStyleBackColor = true;
@@ -89,83 +92,109 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 156);
+            this.label2.Location = new System.Drawing.Point(15, 260);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(107, 17);
+            this.label2.Size = new System.Drawing.Size(120, 20);
             this.label2.TabIndex = 3;
             this.label2.Text = "Value to search";
             // 
             // numericUpDownValueToSearch
             // 
-            this.numericUpDownValueToSearch.Location = new System.Drawing.Point(153, 151);
+            this.numericUpDownValueToSearch.Location = new System.Drawing.Point(173, 254);
+            this.numericUpDownValueToSearch.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.numericUpDownValueToSearch.Maximum = new decimal(new int[] {
+            -1981284352,
+            -1966660860,
+            0,
+            0});
+            this.numericUpDownValueToSearch.Minimum = new decimal(new int[] {
+            -1981284352,
+            -1966660860,
+            0,
+            -2147483648});
             this.numericUpDownValueToSearch.Name = "numericUpDownValueToSearch";
-            this.numericUpDownValueToSearch.Size = new System.Drawing.Size(120, 22);
+            this.numericUpDownValueToSearch.Size = new System.Drawing.Size(135, 26);
             this.numericUpDownValueToSearch.TabIndex = 4;
             // 
             // textBoxOutput
             // 
-            this.textBoxOutput.Location = new System.Drawing.Point(279, 9);
+            this.textBoxOutput.Location = new System.Drawing.Point(314, 11);
+            this.textBoxOutput.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxOutput.Multiline = true;
             this.textBoxOutput.Name = "textBoxOutput";
-            this.textBoxOutput.Size = new System.Drawing.Size(373, 348);
+            this.textBoxOutput.Size = new System.Drawing.Size(419, 434);
             this.textBoxOutput.TabIndex = 5;
             // 
             // numericUpDownRangeTo
             // 
-            this.numericUpDownRangeTo.Location = new System.Drawing.Point(153, 95);
+            this.numericUpDownRangeTo.Location = new System.Drawing.Point(172, 119);
+            this.numericUpDownRangeTo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.numericUpDownRangeTo.Maximum = new decimal(new int[] {
             1000000,
             0,
             0,
             0});
             this.numericUpDownRangeTo.Name = "numericUpDownRangeTo";
-            this.numericUpDownRangeTo.Size = new System.Drawing.Size(120, 22);
+            this.numericUpDownRangeTo.Size = new System.Drawing.Size(135, 26);
             this.numericUpDownRangeTo.TabIndex = 17;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(107, 97);
+            this.label6.Location = new System.Drawing.Point(120, 121);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(25, 17);
+            this.label6.Size = new System.Drawing.Size(27, 20);
             this.label6.TabIndex = 16;
             this.label6.Text = "To";
             // 
             // numericUpDownRangeFrom
             // 
-            this.numericUpDownRangeFrom.Location = new System.Drawing.Point(153, 56);
+            this.numericUpDownRangeFrom.Location = new System.Drawing.Point(172, 70);
+            this.numericUpDownRangeFrom.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.numericUpDownRangeFrom.Maximum = new decimal(new int[] {
             1000000,
             0,
             0,
             0});
             this.numericUpDownRangeFrom.Name = "numericUpDownRangeFrom";
-            this.numericUpDownRangeFrom.Size = new System.Drawing.Size(120, 22);
+            this.numericUpDownRangeFrom.Size = new System.Drawing.Size(135, 26);
             this.numericUpDownRangeFrom.TabIndex = 15;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(107, 58);
+            this.label5.Location = new System.Drawing.Point(120, 72);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(40, 17);
+            this.label5.Size = new System.Drawing.Size(46, 20);
             this.label5.TabIndex = 14;
             this.label5.Text = "From";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 36);
+            this.label4.Location = new System.Drawing.Point(14, 45);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(50, 17);
+            this.label4.Size = new System.Drawing.Size(57, 20);
             this.label4.TabIndex = 13;
             this.label4.Text = "Range";
             // 
-            // testSearchingAlgorithms
+            // btnGenerate
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.btnGenerate.Location = new System.Drawing.Point(18, 157);
+            this.btnGenerate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnGenerate.Name = "btnGenerate";
+            this.btnGenerate.Size = new System.Drawing.Size(98, 29);
+            this.btnGenerate.TabIndex = 18;
+            this.btnGenerate.Text = "Generate";
+            this.btnGenerate.UseVisualStyleBackColor = true;
+            this.btnGenerate.Click += new System.EventHandler(this.btnGenerate_Click);
+            // 
+            // TestSearchingAlgorithms
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(664, 369);
+            this.ClientSize = new System.Drawing.Size(747, 461);
+            this.Controls.Add(this.btnGenerate);
             this.Controls.Add(this.numericUpDownRangeTo);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.numericUpDownRangeFrom);
@@ -177,6 +206,7 @@
             this.Controls.Add(this.buttonSearch);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.numericUpDownNoOfElements);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "TestSearchingAlgorithms";
             this.Text = "testSearchingAlgorithms";
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownNoOfElements)).EndInit();
@@ -201,5 +231,6 @@
         private System.Windows.Forms.NumericUpDown numericUpDownRangeFrom;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button btnGenerate;
     }
 }
