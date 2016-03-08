@@ -54,6 +54,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="testCollections.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="testCollections.Designer.cs">
+      <DependentUpon>testCollections.cs</DependentUpon>
+    </Compile>
     <Compile Include="testSearchingAlgorithms.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -105,6 +111,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="testCollections.resx">
+      <DependentUpon>testCollections.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="testSearchingAlgorithms.resx">
       <DependentUpon>testSearchingAlgorithms.cs</DependentUpon>
     </EmbeddedResource>

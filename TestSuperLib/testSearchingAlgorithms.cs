@@ -32,10 +32,10 @@ namespace TestSuperLib
             log("Max search result: " + MaxSearch.ReturnValue + "\r\n");
             log("Sequential search result: " + SeqSearch.ReturnValue + "\r\n");
 
-            log("Timing:\r\nBinary search: " + BinarySearch.Time);
-            log("\r\nMin search: " + MinSearch.Time);
-            log("\r\nMax search: " + MaxSearch.Time);
-            log("\r\nSequential search: " + SeqSearch.Time + "\r\n");
+            log("Timing:\r\nBinary search: " + $"{BinarySearch.Time:0.00000000}");
+            log("\r\nMin search: " + $"{MinSearch.Time:0.00000000}");
+            log("\r\nMax search: " + $"{MaxSearch.Time:0.00000000}");
+            log("\r\nSequential search: " + $"{SeqSearch.Time:0.00000000}" + "\r\n");
 
         }
 
