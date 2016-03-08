@@ -4,17 +4,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace SuperLib.Collections
 {
-    public class LinearHash<T> : IEnumerable<T>
+    public class QuadraticHash<T> : IEnumerable<T>
     {
         private const int Size = 101;
 
         private T[] Data;
 
-        public LinearHash()
+        public QuadraticHash()
         {
             Data = new T[Size];
         }
@@ -25,30 +24,28 @@ namespace SuperLib.Collections
         {
             int hash = item.GetHashCode();
 
-            bool finished = false;
-            int index = hash;
-            bool startedFromBeginning = false;
-
-            while (!finished)
+            if (Data[hash].Equals(default(T)))
             {
-                if (Data[index].Equals(default(T))) // Empty element
+                Data[hash] = item;
+            }
+            else
+            {
+                int tries = 1;
+                bool saved = false;
+
+                while (!saved)
                 {
-                    Data[index] = item;
-                    finished = true;
-                }
-                else
-                {
-                    index++;
-                    if (index >= Size - 1) // If index is out of bound
+                    if (!Data[hash + tries].Equals(default(T)))
                     {
-                        if (startedFromBeginning) throw new IndexOutOfRangeException("There is not enough room"); // Only if we allready started from the beginning
-                        index = 0;
-                        startedFromBeginning = true;
+                        tries++;
+                    }
+                    else
+                    {
+                        Data[hash + tries] = item;
+                        saved = true;
                     }
                 }
             }
-
-            
         }
 
         public void Remove(T item)
@@ -57,14 +54,14 @@ namespace SuperLib.Collections
 
             if (Data[hash].Equals(item))
             {
-                Data = Data.Except(new[] {Data[hash]}).ToArray();
+                Data[hash] = default(T);
             }
             else
             {
                 int tries = 1;
-                bool deleted = false;
+                bool saved = false;
 
-                while (!deleted)
+                while (!saved)
                 {
                     if (!Data[hash + tries].Equals(item))
                     {
@@ -72,8 +69,8 @@ namespace SuperLib.Collections
                     }
                     else
                     {
-                        Data = Data.Except(new[] {Data[hash + tries]}).ToArray();
-                        deleted = true;
+                        Data[hash + tries] = default(T);
+                        saved = true;
                     }
                 }
             }
@@ -81,9 +78,9 @@ namespace SuperLib.Collections
 
         public IEnumerator<T> GetEnumerator()
         {
-            for (int i = 0; i < Size; i++)
+            foreach (T item in Data)
             {
-                if (!Data[i].Equals(default(T))) yield return Data[i];
+                yield return item;
             }
         }
 
