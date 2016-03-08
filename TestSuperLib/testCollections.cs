@@ -56,7 +56,18 @@ namespace TestSuperLib
                 return new NoResult();
             });
 
-            log($"{resultLinearHash.Time:0.00000000}" + "\r\n\r\nOriginal array:\r\n");
+            log($"{resultLinearHash.Time:0.00000000}" + "\r\nQuadraticHash: ");
+
+            var resultQuadraticHash = Timing.Time(() =>
+            {
+                for (int i = 0; i < 50; i++)
+                {
+                    quadraticHash.Insert(array[i]);
+                }
+                return new NoResult();
+            });
+
+            log($"{resultQuadraticHash.Time:0.00000000}" + "\r\n\r\nOriginal array:\r\n");
 
             foreach (int i in array)
             {
