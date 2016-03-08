@@ -17,7 +17,7 @@ namespace SuperLib.Collections
         {
             Data = new CArrayList<T>[Size];
 
-            for (int i = 0; i < Size - 1; i++)
+            for (int i = 0; i < Size; i++)
             {
                 Data[i] = new CArrayList<T>();
             }
@@ -28,10 +28,7 @@ namespace SuperLib.Collections
         public void Insert(T item)
         {
             int hash = item.GetHashCode();
-            if (!Data[hash].Contains(item))
-            {
-                Data[hash].Add(item);
-            }
+            Data[hash].Add(item);
         }
 
         public void Remove(T item)
@@ -45,9 +42,9 @@ namespace SuperLib.Collections
 
         public IEnumerator<T> GetEnumerator()
         {
-            foreach (CArrayList<T> cArrayList in Data)
+            for (int i = 0; i < Size; i++)
             {
-                foreach (T item in cArrayList)
+                foreach (T item in Data[i])
                 {
                     yield return item;
                 }

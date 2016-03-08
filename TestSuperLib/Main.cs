@@ -22,25 +22,25 @@ namespace TestSuperLib
         private void btnChapter1_Click(object sender, EventArgs e)
         {
             Chapter1 chapter1 = new Chapter1();
-            chapter1.Show(Owner);
+            chapter1.ShowDialog();
         }
 
         private void btnChapter2_Click(object sender, EventArgs e)
         {
             Chapter2 chapter2 = new Chapter2();
-            chapter2.Show(Owner);
+            chapter2.ShowDialog();
         }
 
         private void btnChapter3_Click(object sender, EventArgs e)
         {
             Chapter3 chapter3 = new Chapter3();
-            chapter3.Show(Owner);
+            chapter3.ShowDialog();
         }
 
         private void btnChapter4_Click(object sender, EventArgs e)
         {
             Chapter4 chapter4 = new Chapter4();
-            chapter4.Show(Owner);
+            chapter4.ShowDialog();
         }
 
         private void buttonTestSorting_Click(object sender, EventArgs e)
@@ -52,6 +52,12 @@ namespace TestSuperLib
         private void button1_Click(object sender, EventArgs e)
         {
             TestSearchingAlgorithms form = new TestSearchingAlgorithms();
+            form.ShowDialog();
+        }
+
+        private void btnCollections_Click(object sender, EventArgs e)
+        {
+            testCollections form = new testCollections();
             form.ShowDialog();
         }
     }

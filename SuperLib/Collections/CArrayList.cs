@@ -82,7 +82,7 @@ namespace SuperLib.Collections
             }
 
             _count++;
-            newInnerList[_count] = item;
+            newInnerList[_count-1] = item;
 
             _innerList = newInnerList;
         }
