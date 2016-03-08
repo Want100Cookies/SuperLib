@@ -45,7 +45,7 @@ namespace SuperLib.Collections
             }
         }
 
-        public object Peek()
+        public T Peek()
         {
             return _queue.First().Peek();
         }
