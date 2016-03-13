@@ -57,7 +57,13 @@ namespace TestSuperLib
 
         private void btnCollections_Click(object sender, EventArgs e)
         {
-            testCollections form = new testCollections();
+            testHashCollections form = new testHashCollections();
+            form.ShowDialog();
+        }
+
+        private void btnLinkedCollections_Click(object sender, EventArgs e)
+        {
+            testLinkedCollections form = new testLinkedCollections();
             form.ShowDialog();
         }
     }

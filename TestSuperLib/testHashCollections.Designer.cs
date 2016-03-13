@@ -1,6 +1,6 @@
 ﻿namespace TestSuperLib
 {
-    partial class testCollections
+    partial class testHashCollections
     {
         /// <summary>
         /// Required designer variable.

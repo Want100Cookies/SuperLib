@@ -45,10 +45,12 @@
     <Compile Include="Collections\BucketHash.cs" />
     <Compile Include="Collections\CArray.cs" />
     <Compile Include="Collections\CArrayList.cs" />
+    <Compile Include="Collections\CircularLinkedList.cs" />
     <Compile Include="Collections\Collection.cs" />
     <Compile Include="Collections\CPriorityQueue.cs" />
     <Compile Include="Collections\CQueue.cs" />
     <Compile Include="Collections\CStack.cs" />
+    <Compile Include="Collections\DoublyLinkedList.cs" />
     <Compile Include="Collections\LinearHash.cs" />
     <Compile Include="Collections\QuadraticHash.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

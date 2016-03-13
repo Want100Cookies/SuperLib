@@ -37,6 +37,7 @@
             this.buttonTestSorting = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.btnCollections = new System.Windows.Forms.Button();
+            this.btnLinkedCollections = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnChapter1
@@ -132,15 +133,27 @@
             this.btnCollections.Name = "btnCollections";
             this.btnCollections.Size = new System.Drawing.Size(263, 54);
             this.btnCollections.TabIndex = 8;
-            this.btnCollections.Text = "Test collections";
+            this.btnCollections.Text = "Test hash collections";
             this.btnCollections.UseVisualStyleBackColor = true;
             this.btnCollections.Click += new System.EventHandler(this.btnCollections_Click);
+            // 
+            // btnLinkedCollections
+            // 
+            this.btnLinkedCollections.Location = new System.Drawing.Point(19, 108);
+            this.btnLinkedCollections.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnLinkedCollections.Name = "btnLinkedCollections";
+            this.btnLinkedCollections.Size = new System.Drawing.Size(263, 54);
+            this.btnLinkedCollections.TabIndex = 9;
+            this.btnLinkedCollections.Text = "Test linked collections";
+            this.btnLinkedCollections.UseVisualStyleBackColor = true;
+            this.btnLinkedCollections.Click += new System.EventHandler(this.btnLinkedCollections_Click);
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(846, 405);
+            this.Controls.Add(this.btnLinkedCollections);
             this.Controls.Add(this.btnCollections);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.buttonTestSorting);
@@ -169,6 +182,7 @@
         private System.Windows.Forms.Button buttonTestSorting;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnCollections;
+        private System.Windows.Forms.Button btnLinkedCollections;
     }
 }
 

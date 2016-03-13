@@ -13,9 +13,9 @@ using SuperLib.Sort;
 
 namespace TestSuperLib
 {
-    public partial class testCollections : Form
+    public partial class testHashCollections : Form
     {
-        public testCollections()
+        public testHashCollections()
         {
             InitializeComponent();
         }
