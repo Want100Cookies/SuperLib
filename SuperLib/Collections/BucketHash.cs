@@ -9,40 +9,45 @@ namespace SuperLib.Collections
 {
     public class BucketHash<T> : IEnumerable<T>
     {
-        private const int Size = 101;
+        private readonly int _size;
 
         private CArrayList<T>[] Data;
 
-        public BucketHash()
+        public BucketHash(int size)
         {
-            Data = new CArrayList<T>[Size];
+            _size = size;
+            Data = new CArrayList<T>[_size];
 
-            for (int i = 0; i < Size; i++)
+            for (int i = 0; i < _size; i++)
             {
                 Data[i] = new CArrayList<T>();
             }
         }
 
-        public CArrayList<T> this[int index] => Data[index];
-
         public void Insert(T item)
         {
-            int hash = item.GetHashCode();
-            Data[hash].Add(item);
+            int position = GetPosition(item);
+            Data[position].Add(item);
         }
 
         public void Remove(T item)
         {
-            int hash = item.GetHashCode();
-            if (Data[hash].Contains(item))
+            int position = GetPosition(item);
+            if (Data[position].Contains(item))
             {
-                Data[hash].Remove(item);
+                Data[position].Remove(item);
             }
+        }
+
+        protected int GetPosition(T item)
+        {
+            int position = item.GetHashCode() % _size;
+            return Math.Abs(position);
         }
 
         public IEnumerator<T> GetEnumerator()
         {
-            for (int i = 0; i < Size; i++)
+            for (int i = 0; i < _size; i++)
             {
                 foreach (T item in Data[i])
                 {

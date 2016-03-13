@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data.SqlTypes;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,29 +10,28 @@ namespace SuperLib.Collections
 {
     public class QuadraticHash<T> : IEnumerable<T>
     {
-        private const int Size = 101;
+        private readonly int _size;
 
         private T[] Data;
 
-        public QuadraticHash()
+        public QuadraticHash(int size)
         {
-            Data = new T[Size];
+            _size = size;
+            Data = new T[_size];
         }
-
-        public T this[int index] => Data[index];
 
         public void Insert(T item)
         {
-            int hash = item.GetHashCode();
+            int position = GetPosition(item);
 
             bool finished = false;
-            int index = hash;
+            int index = position;
             int tries = 0;
             bool startedFromBeginning = false;
 
             while (!finished)
             {
-                if (Data[index].Equals(default(T))) // Empty element
+                if (Equals(Data[index], default(T))) // Empty element
                 {
                     Data[index] = item;
                     finished = true;
@@ -40,7 +40,7 @@ namespace SuperLib.Collections
                 {
                     tries++;
                     index = 2 * tries - 1;
-                    if (index >= Size - 1) // If index is out of bound
+                    if (index >= _size - 1) // If index is out of bound
                     {
                         if (startedFromBeginning) throw new IndexOutOfRangeException("No space found"); // Only if we allready started from the beginning
                         index = 1;
@@ -48,43 +48,49 @@ namespace SuperLib.Collections
                     }
                 }
             }
-
-
         }
 
         public void Remove(T item)
         {
-            int hash = item.GetHashCode();
+            int position = GetPosition(item);
 
-            if (Data[hash].Equals(item))
-            {
-                Data = Data.Except(new[] { Data[hash] }).ToArray();
-            }
-            else
-            {
-                int tries = 1;
-                bool deleted = false;
+            bool finished = false;
+            int index = position;
+            int tries = 0;
+            bool startedFromBeginning = false;
 
-                while (!deleted)
+            while (!finished)
+            {
+                if (Data[index].Equals(item)) // Empty element
                 {
-                    if (!Data[hash + tries].Equals(item))
+                    Data[index] = default(T);
+                    finished = true;
+                }
+                else
+                {
+                    tries++;
+                    index = 2 * tries - 1;
+                    if (index >= _size - 1) // If index is out of bound
                     {
-                        tries++;
-                    }
-                    else
-                    {
-                        Data = Data.Except(new[] { Data[hash + tries] }).ToArray();
-                        deleted = true;
+                        if (startedFromBeginning) throw new IndexOutOfRangeException("No space found"); // Only if we allready started from the beginning
+                        index = 1;
+                        startedFromBeginning = true;
                     }
                 }
             }
         }
 
+        protected int GetPosition(T item)
+        {
+            int position = item.GetHashCode() % _size;
+            return Math.Abs(position);
+        }
+
         public IEnumerator<T> GetEnumerator()
         {
-            for (int i = 0; i < Size; i++)
+            for (int i = 0; i < _size; i++)
             {
-                if (!Data[i].Equals(default(T))) yield return Data[i];
+                if (!Equals(Data[i], default(T))) yield return Data[i];
             }
         }
 
