@@ -27,11 +27,15 @@ namespace SuperLib
             Process proc = Process.GetCurrentProcess(); // Get current proces
             proc.ProcessorAffinity = (IntPtr) 1;        // Disable switching between processors
             proc.PriorityClass = ProcessPriorityClass.High;
+            
 
             foreach (ProcessThread pt in proc.Threads) // For each thread under the current process
             {
                 pt.IdealProcessor = 0;              // Set the ideal processor to the 1st one
             }
+
+            GC.Collect();
+            GC.WaitForPendingFinalizers();
 
             lock (action)
             {

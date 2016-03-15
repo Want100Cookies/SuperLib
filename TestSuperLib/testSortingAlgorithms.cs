@@ -47,7 +47,7 @@ namespace TestSuperLib
             for (int i = 0; i < (numericUpDownNoOfElements.Value); i++)
             {
                 array[i] = generator.Next((int) numericUpDownRangeFrom.Value, (int) numericUpDownRangeTo.Value);
-                Log(array[i] + " ");
+                if (chkBoxViewResult.Checked) Log(array[i] + " ");
                 sortedArray[i] = i;
             }
             Log("\r\n");
