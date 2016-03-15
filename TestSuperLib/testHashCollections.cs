@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using SuperLib;
 using SuperLib.Collections;
+using SuperLib.Collections.Hash;
 using SuperLib.Sort;
 
 namespace TestSuperLib

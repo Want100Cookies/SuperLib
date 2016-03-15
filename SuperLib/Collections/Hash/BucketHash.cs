@@ -8,31 +8,31 @@ namespace SuperLib.Collections.Hash
     {
         private readonly int _size;
 
-        private CArrayList<T>[] Data;
+        private CArrayList<T>[] _data;
 
         public BucketHash(int size)
         {
             _size = size;
-            Data = new CArrayList<T>[_size];
+            _data = new CArrayList<T>[_size];
 
             for (int i = 0; i < _size; i++)
             {
-                Data[i] = new CArrayList<T>();
+                _data[i] = new CArrayList<T>();
             }
         }
 
         public void Insert(T item)
         {
             int position = GetPosition(item);
-            Data[position].Add(item);
+            _data[position].Add(item);
         }
 
         public void Remove(T item)
         {
             int position = GetPosition(item);
-            if (Data[position].Contains(item))
+            if (_data[position].Contains(item))
             {
-                Data[position].Remove(item);
+                _data[position].Remove(item);
             }
         }
 
@@ -46,7 +46,7 @@ namespace SuperLib.Collections.Hash
         {
             for (int i = 0; i < _size; i++)
             {
-                foreach (T item in Data[i])
+                foreach (T item in _data[i])
                 {
                     yield return item;
                 }

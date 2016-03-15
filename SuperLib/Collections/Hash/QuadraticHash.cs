@@ -8,12 +8,12 @@ namespace SuperLib.Collections.Hash
     {
         private readonly int _size;
 
-        private T[] Data;
+        private T[] _data;
 
         public QuadraticHash(int size)
         {
             _size = size;
-            Data = new T[_size];
+            _data = new T[_size];
         }
 
         public void Insert(T item)
@@ -27,9 +27,9 @@ namespace SuperLib.Collections.Hash
 
             while (!finished)
             {
-                if (Equals(Data[index], default(T))) // Empty element
+                if (Equals(_data[index], default(T))) // Empty element
                 {
-                    Data[index] = item;
+                    _data[index] = item;
                     finished = true;
                 }
                 else
@@ -57,9 +57,9 @@ namespace SuperLib.Collections.Hash
 
             while (!finished)
             {
-                if (Data[index].Equals(item)) // Empty element
+                if (_data[index].Equals(item)) // Empty element
                 {
-                    Data[index] = default(T);
+                    _data[index] = default(T);
                     finished = true;
                 }
                 else
@@ -86,7 +86,7 @@ namespace SuperLib.Collections.Hash
         {
             for (int i = 0; i < _size; i++)
             {
-                if (!Equals(Data[i], default(T))) yield return Data[i];
+                if (!Equals(_data[i], default(T))) yield return _data[i];
             }
         }
 

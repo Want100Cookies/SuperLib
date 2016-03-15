@@ -9,30 +9,30 @@ namespace SuperLib.Collections
 {
     public class CArray<T> : IEnumerable<T> where T : IComparable<T>
     {
-        protected T[] _arr;
+        protected T[] Arr;
         private readonly int _upper;
         private int _numElements;
 
         public CArray(int size)
         {
-            _arr = new T[size];
+            Arr = new T[size];
             _upper = size - 1;
             _numElements = 0;
         }
 
         public T[] GetArray()
         {
-            return _arr;
+            return Arr;
         }
 
         public T this[int index]
         {
-            get { return _arr[index]; }
+            get { return Arr[index]; }
             set
             {
                 if (index < _upper)
                 {
-                    _arr[index] = value;
+                    Arr[index] = value;
                 }
                 else
                 {
@@ -43,7 +43,7 @@ namespace SuperLib.Collections
 
         public void Insert(T item)
         {
-            _arr[_numElements] = item;
+            Arr[_numElements] = item;
             _numElements++;
         }
 
@@ -51,7 +51,7 @@ namespace SuperLib.Collections
         {
             for (int i = 0; i < _upper; i++)
             {
-                Console.Write(_arr[i] + " ");
+                Console.Write(Arr[i] + " ");
             }
 
             Console.WriteLine();
@@ -61,7 +61,7 @@ namespace SuperLib.Collections
         {
             for (int i = 0; i < _upper; i++)
             {
-                _arr[i] = default(T);
+                Arr[i] = default(T);
             }
             _numElements = 0;
         }
@@ -70,7 +70,7 @@ namespace SuperLib.Collections
         {
             for (int i = 0; i < _upper; i++)
             {
-                yield return _arr[i];
+                yield return Arr[i];
             }
         }
 

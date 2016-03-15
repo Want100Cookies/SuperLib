@@ -62,6 +62,8 @@ namespace SuperLib.Collections.LinkedList
             return current;
         }
 
+        public Node<T> First => _header.Link;
+
         public IEnumerable<T> GetEnumerable()
         {
             Node<T> current = _header;
