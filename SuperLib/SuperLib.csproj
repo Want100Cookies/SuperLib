@@ -51,7 +51,10 @@
     <Compile Include="Collections\CQueue.cs" />
     <Compile Include="Collections\CStack.cs" />
     <Compile Include="Collections\DoublyLinkedList.cs" />
+    <Compile Include="Collections\DoublyNode.cs" />
     <Compile Include="Collections\LinearHash.cs" />
+    <Compile Include="Collections\LinkedList.cs" />
+    <Compile Include="Collections\Node.cs" />
     <Compile Include="Collections\QuadraticHash.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Collections\SuperCollection.cs" />
