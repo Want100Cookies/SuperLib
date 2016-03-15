@@ -1,12 +1,8 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Data.SqlTypes;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace SuperLib.Collections
+namespace SuperLib.Collections.Hash
 {
     public class QuadraticHash<T> : IEnumerable<T>
     {

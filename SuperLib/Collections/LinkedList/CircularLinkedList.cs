@@ -1,18 +1,15 @@
-﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace SuperLib.Collections
+namespace SuperLib.Collections.LinkedList
 {
-    class LinkedList<T>
+    public class CircularLinkedList<T>
     {
         private readonly Node<T> _header;
 
-        public LinkedList()
+        public CircularLinkedList()
         {
             _header = new Node<T>(default(T));
+            _header.Link = _header;
         }
 
         public void Insert(T newItem, T after)
@@ -66,12 +63,18 @@ namespace SuperLib.Collections
             return current;
         }
 
-        public IEnumerable<T> GetEnumerable()
+        public IEnumerable<T> GetEnumerable(int iterations)
         {
             Node<T> current = _header;
+            int i = 0;
 
-            while (!Equals(current.Link, default(T)))
+            while (i < iterations)
             {
+                if (current.Link.Equals(_header))
+                {
+                    i++;
+                }
+
                 current = current.Link;
                 if (!Equals(current.Element, default(T))) yield return current.Element;
             }

@@ -1,10 +1,6 @@
-﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace SuperLib.Collections
+namespace SuperLib.Collections.LinkedList
 {
     public class DoublyLinkedList<T>
     {
