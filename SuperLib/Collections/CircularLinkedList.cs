@@ -65,7 +65,7 @@ namespace SuperLib.Collections
             }
 
             return current;
-        } 
+        }
 
         public IEnumerable<T> GetEnumerable(int iterations)
         {
@@ -81,19 +81,6 @@ namespace SuperLib.Collections
 
                 current = current.Link;
                 if (!Equals(current.Element, default(T))) yield return current.Element;
-            }
-        }
-
-        public class Node<T>
-        {
-            public T Element { get; }
-
-            public Node<T> Link { get; set; }
-
-            public Node(T element)
-            {
-                Element = element;
-                Link = null;
             }
         }
     }

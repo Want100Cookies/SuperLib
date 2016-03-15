@@ -8,17 +8,17 @@ namespace SuperLib.Collections
 {
     public class DoublyLinkedList<T>
     {
-        private readonly Node<T> _header; 
+        private readonly DoublyNode<T> _header; 
         
         public DoublyLinkedList()
         {
-            _header = new Node<T>(default(T));
+            _header = new DoublyNode<T>(default(T));
         }
 
         public void Insert(T newItem, T after)
         {
-            Node<T> current = Find(after);
-            Node<T> newNode = new Node<T>(newItem);
+            DoublyNode<T> current = Find(after);
+            DoublyNode<T> newNode = new DoublyNode<T>(newItem);
 
             newNode.Before = current;
             newNode.After = current.After;
@@ -33,7 +33,7 @@ namespace SuperLib.Collections
 
         public void InsertFirst(T newItem)
         {
-            Node<T> newNode = new Node<T>(newItem);
+            DoublyNode<T> newNode = new DoublyNode<T>(newItem);
 
             newNode.After = _header.After;
             newNode.Before = _header;
@@ -42,7 +42,7 @@ namespace SuperLib.Collections
 
         public void Remove(T item)
         {
-            Node<T> toRemove = Find(item);
+            DoublyNode<T> toRemove = Find(item);
 
             if (!Equals(toRemove.After, default(T)))
             {
@@ -51,13 +51,13 @@ namespace SuperLib.Collections
             }
             else
             {
-                toRemove.Before.After = new Node<T>(default(T));
+                toRemove.Before.After = new DoublyNode<T>(default(T));
             }
         }
 
-        private Node<T> Find(T item)
+        private DoublyNode<T> Find(T item)
         {
-            Node<T> current = _header;
+            DoublyNode<T> current = _header;
 
             while (!current.Element.Equals(item))
             {
@@ -67,9 +67,9 @@ namespace SuperLib.Collections
             return current;
         }
 
-        private Node<T> FindLast()
+        private DoublyNode<T> FindLast()
         {
-            Node<T> current = _header;
+            DoublyNode<T> current = _header;
 
             while (current.After != null)
             {
@@ -81,7 +81,7 @@ namespace SuperLib.Collections
 
         public IEnumerable<T> GetEnumerable()
         {
-            Node<T> current = _header;
+            DoublyNode<T> current = _header;
 
             while (current.After != null)
             {
@@ -92,28 +92,13 @@ namespace SuperLib.Collections
 
         public IEnumerable<T> GetReverseEnumerable()
         {
-            Node<T> current = FindLast();
+            DoublyNode<T> current = FindLast();
 
             while (current.Before != null)
             {
                 current = current.Before;
                 yield return current.After.Element;
             }
-        }
-
-        public class Node<T>
-        {
-            public T Element { get; }
-
-            public Node<T> Before { get; set; }
-            public Node<T> After { get; set; }
-
-            public Node(T element)
-            {
-                Element = element;
-                Before = null;
-                After = null;
-            } 
         }
     }
 }
