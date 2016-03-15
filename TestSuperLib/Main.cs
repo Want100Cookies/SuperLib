@@ -66,5 +66,11 @@ namespace TestSuperLib
             testLinkedCollections form = new testLinkedCollections();
             form.ShowDialog();
         }
+
+        private void btnTestBinarySearchTree_Click(object sender, EventArgs e)
+        {
+            testBinarySearchTree form = new testBinarySearchTree();
+            form.ShowDialog();
+        }
     }
 }

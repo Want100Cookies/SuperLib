@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Collections\BinarySearchTree.cs" />
     <Compile Include="Collections\CArray.cs" />
     <Compile Include="Collections\CArrayList.cs" />
     <Compile Include="Collections\Collection.cs" />

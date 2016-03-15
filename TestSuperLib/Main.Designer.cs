@@ -38,6 +38,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.btnCollections = new System.Windows.Forms.Button();
             this.btnLinkedCollections = new System.Windows.Forms.Button();
+            this.btnTestBinarySearchTree = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnChapter1
@@ -148,11 +149,23 @@
             this.btnLinkedCollections.UseVisualStyleBackColor = true;
             this.btnLinkedCollections.Click += new System.EventHandler(this.btnLinkedCollections_Click);
             // 
+            // btnTestBinarySearchTree
+            // 
+            this.btnTestBinarySearchTree.Location = new System.Drawing.Point(289, 108);
+            this.btnTestBinarySearchTree.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnTestBinarySearchTree.Name = "btnTestBinarySearchTree";
+            this.btnTestBinarySearchTree.Size = new System.Drawing.Size(263, 54);
+            this.btnTestBinarySearchTree.TabIndex = 10;
+            this.btnTestBinarySearchTree.Text = "Test binary search tree";
+            this.btnTestBinarySearchTree.UseVisualStyleBackColor = true;
+            this.btnTestBinarySearchTree.Click += new System.EventHandler(this.btnTestBinarySearchTree_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(846, 405);
+            this.Controls.Add(this.btnTestBinarySearchTree);
             this.Controls.Add(this.btnLinkedCollections);
             this.Controls.Add(this.btnCollections);
             this.Controls.Add(this.button1);
@@ -183,6 +196,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnCollections;
         private System.Windows.Forms.Button btnLinkedCollections;
+        private System.Windows.Forms.Button btnTestBinarySearchTree;
     }
 }
 

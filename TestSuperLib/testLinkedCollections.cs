@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using SuperLib.Collections;
+using SuperLib.Collections.LinkedList;
 using SuperLib.Sort;
 
 namespace TestSuperLib
