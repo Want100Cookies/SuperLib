@@ -36,9 +36,14 @@
             this.numericUpDownNoItems = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
             this.Output = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.numericUpDownDelete = new System.Windows.Forms.NumericUpDown();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRandomStart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRandomStop)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownNoItems)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDelete)).BeginInit();
             this.SuspendLayout();
             // 
             // btnStart
@@ -143,14 +148,62 @@
             this.Output.Multiline = true;
             this.Output.Name = "Output";
             this.Output.ReadOnly = true;
+            this.Output.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.Output.Size = new System.Drawing.Size(881, 619);
             this.Output.TabIndex = 7;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(41, 222);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(75, 20);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "To delete";
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Location = new System.Drawing.Point(12, 252);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(231, 47);
+            this.btnDelete.TabIndex = 10;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // numericUpDownDelete
+            // 
+            this.numericUpDownDelete.Location = new System.Drawing.Point(123, 220);
+            this.numericUpDownDelete.Maximum = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
+            this.numericUpDownDelete.Name = "numericUpDownDelete";
+            this.numericUpDownDelete.Size = new System.Drawing.Size(120, 26);
+            this.numericUpDownDelete.TabIndex = 8;
+            this.numericUpDownDelete.Value = new decimal(new int[] {
+            30,
+            0,
+            0,
+            0});
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(16, 343);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 26);
+            this.textBox1.TabIndex = 11;
             // 
             // testBinarySearchTree
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1142, 639);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.btnDelete);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.numericUpDownDelete);
             this.Controls.Add(this.Output);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.numericUpDownNoItems);
@@ -164,6 +217,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRandomStart)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRandomStop)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownNoItems)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDelete)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -179,5 +233,9 @@
         private System.Windows.Forms.NumericUpDown numericUpDownNoItems;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox Output;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.NumericUpDown numericUpDownDelete;
     }
 }

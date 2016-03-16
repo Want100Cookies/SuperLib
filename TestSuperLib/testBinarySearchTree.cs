@@ -13,6 +13,8 @@ namespace TestSuperLib
 {
     public partial class testBinarySearchTree : Form
     {
+        private BinarySearchTree<int> BST; 
+
         public testBinarySearchTree()
         {
             InitializeComponent();
@@ -20,8 +22,11 @@ namespace TestSuperLib
 
         private void btnStart_Click(object sender, EventArgs e)
         {
+            Output.Clear();
+
             Random rnd = new Random();
-            BinarySearchTree<int> BST = new BinarySearchTree<int>();
+
+            BST = new BinarySearchTree<int>();
 
             for (int i = 0; i < numericUpDownNoItems.Value; i++)
             {
@@ -33,21 +38,41 @@ namespace TestSuperLib
                 Output.AppendText(i + " ");
             }
 
-            printBST(BST.RootNode, 1);
+            printBST(BST.RootNode);
         }
 
-        private void printBST(BinarySearchTree<int>.Node<int> node, int depth)
+        private void printBST(BinarySearchTree<int>.Node<int> node, string indent = "", bool last = true)
         {
             if (node == null) return;
 
-            for (int i = 0; i < depth; i++)
+            Output.AppendText("\r\n" + indent);
+
+            if (last)
             {
-                Output.AppendText("-");
+                Output.AppendText("\\-");
+                indent += " ";
             }
-            Output.AppendText(node.Data + "\r\n");
-            depth++;
-            printBST(node.Left, depth);
-            printBST(node.Right, depth);
+            else
+            {
+                Output.AppendText("|-");
+                indent += "| ";
+            }
+
+            Output.AppendText(node.Data.ToString());
+
+            printBST(node.Left, indent, node.Right == null);
+            printBST(node.Right, indent);
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            bool success = BST.Delete((int)numericUpDownDelete.Value);
+            Output.AppendText("\r\nDeleted node? " + success + "\r\n\r\n");
+
+            printBST(BST.RootNode);
+
+            //var node = BST.FindNode((int) numericUpDownDelete.Value);
+            //Output.AppendText("\r\nFound node: " + node.Data);
         }
     }
 }
