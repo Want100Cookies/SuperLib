@@ -2,6 +2,9 @@
 
 namespace SuperLib.Collections
 {
+    /// <summary>
+    /// Very simple collection inheriting from collectionBase (pretty much just exposing it)
+    /// </summary>
     public class Collection : CollectionBase
     {
         public void Add(object item)

@@ -5,8 +5,13 @@ using System.Linq;
 
 namespace SuperLib.Collections
 {
+    /// <summary>
+    /// Implements ICollection, the most generic collection
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public class SuperCollection<T> : ICollection<T>
     {
+        // Internally using a normal array
         private T[] _collection;
 
         int ICollection<T>.Count => _collection.Length;
@@ -20,6 +25,7 @@ namespace SuperLib.Collections
 
         public void Add(T item)
         {
+            // Use array internals to resize the array
             Array.Resize(ref _collection, _collection.Count() + 1);
 
             _collection[_collection.Count() - 1] = item;

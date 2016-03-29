@@ -4,6 +4,10 @@ using System.Collections.Generic;
 
 namespace SuperLib.Collections.Hash
 {
+    /// <summary>
+    /// HashTable with linear calculation
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public class LinearHash<T> : IEnumerable<T>
     {
         private readonly int _size ;
@@ -16,6 +20,10 @@ namespace SuperLib.Collections.Hash
             _data = new T[_size];
         }
 
+        /// <summary>
+        /// Insert new value in the hash table
+        /// </summary>
+        /// <param name="item"></param>
         public void Insert(T item)
         {
             int position = GetPosition(item);
@@ -28,12 +36,12 @@ namespace SuperLib.Collections.Hash
             {
                 if (Equals(_data[index], default(T))) // Empty element
                 {
-                    _data[index] = item;
-                    finished = true;
+                    _data[index] = item; // Save the value
+                    finished = true; // Stop the loop
                 }
                 else
                 {
-                    index++;
+                    index++; // Next index
                     if (index >= _size - 1) // If index is out of bound
                     {
                         if (startedFromBeginning) throw new IndexOutOfRangeException("There is not enough room"); // Only if we allready started from the beginning
@@ -44,6 +52,10 @@ namespace SuperLib.Collections.Hash
             }
         }
 
+        /// <summary>
+        /// Remove the value from the has table
+        /// </summary>
+        /// <param name="item"></param>
         public void Remove(T item)
         {
             int position = GetPosition(item);
@@ -56,12 +68,12 @@ namespace SuperLib.Collections.Hash
             {
                 if (_data[index].Equals(item)) // Empty element
                 {
-                    _data[index] = default(T);
-                    finished = true;
+                    _data[index] = default(T); // Set the default
+                    finished = true; // Stop the loop
                 }
                 else
                 {
-                    index++;
+                    index++; // Next index
                     if (index >= _size - 1) // If index is out of bound
                     {
                         if (startedFromBeginning) throw new IndexOutOfRangeException("There is not enough room"); // Only if we allready started from the beginning
@@ -72,12 +84,21 @@ namespace SuperLib.Collections.Hash
             }
         }
 
+        /// <summary>
+        /// Calculate the position with the hash in the bounds of the array
+        /// </summary>
+        /// <param name="item"></param>
+        /// <returns></returns>
         protected int GetPosition(T item)
         {
             int position = item.GetHashCode() % _size;
             return Math.Abs(position);
         }
 
+        /// <summary>
+        /// Get all values (only if not default)
+        /// </summary>
+        /// <returns></returns>
         public IEnumerator<T> GetEnumerator()
         {
             for (int i = 0; i < _size; i++)

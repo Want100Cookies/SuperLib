@@ -2,6 +2,10 @@ using System.Collections.Generic;
 
 namespace SuperLib.Collections.LinkedList
 {
+    /// <summary>
+    /// The same as a normal linked list but the last node is linking to the header instead of null
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public class CircularLinkedList<T>
     {
         private readonly Node<T> _header;
@@ -9,6 +13,7 @@ namespace SuperLib.Collections.LinkedList
         public CircularLinkedList()
         {
             _header = new Node<T>(default(T));
+            // Link to the header
             _header.Link = _header;
         }
 
@@ -63,6 +68,11 @@ namespace SuperLib.Collections.LinkedList
             return current;
         }
 
+        /// <summary>
+        /// Get all values for x number of iterations (or else it would be infinite)
+        /// </summary>
+        /// <param name="iterations"></param>
+        /// <returns></returns>
         public IEnumerable<T> GetEnumerable(int iterations)
         {
             Node<T> current = _header;

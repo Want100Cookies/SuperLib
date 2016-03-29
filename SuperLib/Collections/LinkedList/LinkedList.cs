@@ -2,8 +2,15 @@ using System.Collections.Generic;
 
 namespace SuperLib.Collections.LinkedList
 {
+    /// <summary>
+    /// Simple linked list implementation
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public class LinkedList<T>
     {
+        /// <summary>
+        /// Header of the list (first node)
+        /// </summary>
         private readonly Node<T> _header;
 
         public LinkedList()
@@ -11,6 +18,11 @@ namespace SuperLib.Collections.LinkedList
             _header = new Node<T>(default(T));
         }
 
+        /// <summary>
+        /// Insert a new item after the given value
+        /// </summary>
+        /// <param name="newItem"></param>
+        /// <param name="after"></param>
         public void Insert(T newItem, T after)
         {
             Node<T> current = Find(after);
@@ -20,6 +32,10 @@ namespace SuperLib.Collections.LinkedList
             current.Link = newNode;
         }
 
+        /// <summary>
+        /// Insert the first node
+        /// </summary>
+        /// <param name="newItem"></param>
         public void InsertFirst(T newItem)
         {
             Node<T> newNode = new Node<T>(newItem);
@@ -28,6 +44,10 @@ namespace SuperLib.Collections.LinkedList
             newNode.Link = _header;
         }
 
+        /// <summary>
+        /// Remove the node with the given value
+        /// </summary>
+        /// <param name="item"></param>
         public void Remove(T item)
         {
             Node<T> toRemove = FindPrevious(item);
@@ -38,6 +58,11 @@ namespace SuperLib.Collections.LinkedList
             }
         }
 
+        /// <summary>
+        /// Find the node for the given value
+        /// </summary>
+        /// <param name="item"></param>
+        /// <returns></returns>
         private Node<T> Find(T item)
         {
             Node<T> current = _header;
@@ -50,6 +75,11 @@ namespace SuperLib.Collections.LinkedList
             return current;
         }
 
+        /// <summary>
+        /// Find the node before the given value
+        /// </summary>
+        /// <param name="item"></param>
+        /// <returns></returns>
         private Node<T> FindPrevious(T item)
         {
             Node<T> current = _header;
@@ -62,8 +92,15 @@ namespace SuperLib.Collections.LinkedList
             return current;
         }
 
+        /// <summary>
+        /// Get the first item
+        /// </summary>
         public Node<T> First => _header.Link;
 
+        /// <summary>
+        /// Enumerate over all values (wihtout the defaults)
+        /// </summary>
+        /// <returns></returns>
         public IEnumerable<T> GetEnumerable()
         {
             Node<T> current = _header;

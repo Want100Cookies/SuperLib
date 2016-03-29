@@ -6,10 +6,16 @@ using System.Threading.Tasks;
 
 namespace SuperLib.Collections
 {
+    /// <summary>
+    /// A collection using the binary search tree algorithm (see book for more information
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public class BinarySearchTree<T> where T : IComparable<T>
     {
+        // Root node containing all the other nodes
         private Node<T> _rootNode;
 
+        // Node implementation
         public class Node<T>
         {
             public T Data { get; set; }
@@ -28,37 +34,52 @@ namespace SuperLib.Collections
             private set { _rootNode = value; }
         }
 
+        /// <summary>
+        /// Constructor setting RootNode to null
+        /// </summary>
         public BinarySearchTree()
         {
             RootNode = null;
         }
 
+        /// <summary>
+        /// Insert the given element under the given rootNode
+        /// </summary>
+        /// <param name="element"></param>
+        /// <param name="rootNode"></param>
         public void Insert(T element, ref Node<T> rootNode)
         {
+            // For an empty rootNode, create one
             if (rootNode == null)
             {
                 rootNode = new Node<T>(element);
             }
             else
             {
+                // Else create just a new node
                 Node<T> newNode = new Node<T>(element);
 
                 Node<T> currentNode = rootNode;
 
+                // End loop til node is place in the tree
                 while (true)
                 {
                     Node<T> parentNode = currentNode;
 
+                    // Compare new node to current
                     if (newNode.Data.CompareTo(currentNode.Data) < 0)
                     {
+                        // newNode is smaller so to the left leg
                         currentNode = currentNode.Left;
-                        if (currentNode != null) continue;
+                        if (currentNode != null) continue; // Not null? next round more luck
 
+                        // Null, yesss. Set the new node and stop the infinite loop
                         parentNode.Left = newNode;
                         break;
                     }
                     else
                     {
+                        // Same as first part of the if but then for right/bigger
                         currentNode = currentNode.Right;
                         if (currentNode != null) continue;
 
@@ -69,11 +90,20 @@ namespace SuperLib.Collections
             }
         }
 
+        /// <summary>
+        /// Insert at the top (root)
+        /// </summary>
+        /// <param name="element"></param>
         public void Insert(T element)
         {
             Insert(element, ref _rootNode);
         }
 
+        /// <summary>
+        /// Delete the given value from the tree (first occurence)
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
         public bool Delete(T value)
         {
             Node<T> current = RootNode;
@@ -81,6 +111,7 @@ namespace SuperLib.Collections
 
             bool isLeftChild = true;
 
+            // Find the given node (and it's parent)
             while (current.Data.CompareTo(value) != 0)
             {
                 parent = current;
@@ -100,12 +131,12 @@ namespace SuperLib.Collections
                     return false;
                 }
             }
-            Console.WriteLine("Found: " + current.Data);
-            Console.WriteLine("\r\nLeft: " + current.Left + "\r\nRight: " + current.Right);
-
+            
+            // Init new/old tree vars
             Node<T> newTree = null;
             Node<T> oldTree;
 
+            // Set the old tree to left or right
             if (isLeftChild)
             {
                 oldTree = parent.Left;
@@ -115,23 +146,18 @@ namespace SuperLib.Collections
                 oldTree = parent.Right;
             }
 
+            // For each item under the old tree, add it to the new tree
             foreach (T newValue in EnumerableInOrder(oldTree))
             {
-                if (newValue.Equals(value))
+                if (newValue.Equals(value)) // Except the value to be deleted
                 {
                     continue;
                 }
 
-                if (isLeftChild)
-                {
-                    Insert(newValue, ref newTree);
-                }
-                else
-                {
-                    Insert(newValue, ref newTree);
-                }
+                Insert(newValue, ref newTree);
             }
 
+            // Set the new tree under the left/right leg
             if (isLeftChild)
             {
                 parent.Left = newTree;
@@ -144,6 +170,9 @@ namespace SuperLib.Collections
             return true;
         }
 
+        /// <summary>
+        /// Traverse the tree to get the minimum (most left leg)
+        /// </summary>
         public T Min
         {
             get
@@ -157,6 +186,9 @@ namespace SuperLib.Collections
             }
         }
 
+        /// <summary>
+        /// Traverse the tree to get the maximum (most right leg)
+        /// </summary>
         public T Max
         {
             get
@@ -170,10 +202,16 @@ namespace SuperLib.Collections
             }
         }
 
+        /// <summary>
+        /// Find the given value in the tree
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
         public Node<T> FindNode(T value)
         {
             Node<T> current = RootNode;
 
+            // While not found
             while (current.Data.CompareTo(value) != 0)
             {
                 if (value.CompareTo(current.Data) < 0)
@@ -191,6 +229,11 @@ namespace SuperLib.Collections
             return current;
         } 
 
+        /// <summary>
+        /// Get every node from left to right (small to big)
+        /// </summary>
+        /// <param name="rootNode"></param>
+        /// <returns></returns>
         public IEnumerable<T> EnumerableInOrder(Node<T> rootNode)
         {
             if (rootNode == null) yield break;
@@ -208,6 +251,11 @@ namespace SuperLib.Collections
             }
         }
 
+        /// <summary>
+        /// Get every node in hiearchie (starting from the top, traversing down every level)
+        /// </summary>
+        /// <param name="node"></param>
+        /// <returns></returns>
         public IEnumerable<T> EnumerablePreOrder(Node<T> node)
         {
             if (node == null) yield break;
@@ -225,6 +273,11 @@ namespace SuperLib.Collections
             }
         }
 
+        /// <summary>
+        /// Inverse of PreOrder, traversing from the bottom to the top
+        /// </summary>
+        /// <param name="node"></param>
+        /// <returns></returns>
         public IEnumerable<T> EnumerablePostOrder(Node<T> node)
         {
             if (node == null) yield break;

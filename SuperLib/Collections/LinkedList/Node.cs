@@ -1,5 +1,9 @@
 namespace SuperLib.Collections.LinkedList
 {
+    /// <summary>
+    /// Simple node for linked lists
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public class Node<T>
     {
         public T Element { get; }
