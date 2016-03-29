@@ -84,33 +84,6 @@
     <Compile Include="testSortingAlgorithms.Designer.cs">
       <DependentUpon>testSortingAlgorithms.cs</DependentUpon>
     </Compile>
-    <Compile Include="Week 1\Chapter3.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Week 1\Chapter3.Designer.cs">
-      <DependentUpon>Chapter3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Week 1\Chapter1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Week 1\Chapter1.Designer.cs">
-      <DependentUpon>Chapter1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Week 1\Chapter2.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Week 1\Chapter2.Designer.cs">
-      <DependentUpon>Chapter2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Week 1\Chapter4.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Week 1\Chapter4.Designer.cs">
-      <DependentUpon>Chapter4.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Week 1\CourseArrayList.cs" />
-    <Compile Include="Week 1\CourseArray.cs" />
-    <Compile Include="Week 1\Test.cs" />
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
@@ -137,18 +110,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="testSortingAlgorithms.resx">
       <DependentUpon>testSortingAlgorithms.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Week 1\Chapter3.resx">
-      <DependentUpon>Chapter3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Week 1\Chapter1.resx">
-      <DependentUpon>Chapter1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Week 1\Chapter2.resx">
-      <DependentUpon>Chapter2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Week 1\Chapter4.resx">
-      <DependentUpon>Chapter4.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
