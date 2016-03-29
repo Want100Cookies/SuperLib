@@ -69,6 +69,11 @@ namespace TestSuperLib
             bool success = BST.Delete((int)numericUpDownDelete.Value);
             Output.AppendText("\r\nDeleted node? " + success + "\r\n\r\n");
 
+            foreach (int i in BST.EnumerableInOrder(BST.RootNode))
+            {
+                Output.AppendText(i + " ");
+            }
+
             printBST(BST.RootNode);
 
             //var node = BST.FindNode((int) numericUpDownDelete.Value);

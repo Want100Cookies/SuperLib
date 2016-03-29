@@ -8,6 +8,8 @@ namespace SuperLib.Collections
 {
     public class BinarySearchTree<T> where T : IComparable<T>
     {
+        private Node<T> _rootNode;
+
         public class Node<T>
         {
             public T Data { get; set; }
@@ -20,24 +22,28 @@ namespace SuperLib.Collections
             } 
         }
 
-        public Node<T> RootNode { get; private set; } 
+        public Node<T> RootNode
+        {
+            get { return _rootNode; }
+            private set { _rootNode = value; }
+        }
 
         public BinarySearchTree()
         {
             RootNode = null;
         }
 
-        public void Insert(T element)
+        public void Insert(T element, ref Node<T> rootNode)
         {
-            Node<T> newNode = new Node<T>(element);
-
-            if (RootNode == null)
+            if (rootNode == null)
             {
-                RootNode = newNode;
+                rootNode = new Node<T>(element);
             }
             else
             {
-                Node<T> currentNode = RootNode;
+                Node<T> newNode = new Node<T>(element);
+
+                Node<T> currentNode = rootNode;
 
                 while (true)
                 {
@@ -63,26 +69,9 @@ namespace SuperLib.Collections
             }
         }
 
-        private Node<T> GetSuccessor(Node<T> delNode)
+        public void Insert(T element)
         {
-            Node<T> successorParent = delNode;
-            Node<T> successor = delNode;
-            Node<T> current = delNode.Right;
-
-            while (current != null)
-            {
-                successorParent = current;
-                successor = current;
-                current = current.Left;
-            }
-
-            if (successor != delNode.Right)
-            {
-                successorParent.Left = successor.Right;
-                successor.Right = delNode.Right;
-            }
-
-            return successor;
+            Insert(element, ref _rootNode);
         }
 
         public bool Delete(T value)
@@ -114,70 +103,44 @@ namespace SuperLib.Collections
             Console.WriteLine("Found: " + current.Data);
             Console.WriteLine("\r\nLeft: " + current.Left + "\r\nRight: " + current.Right);
 
-            if ((current.Left == null) && (current.Right == null))
+            Node<T> newTree = null;
+            Node<T> oldTree;
+
+            if (isLeftChild)
             {
-                if (current == RootNode) { 
-                    RootNode = null;
-                }
-                else if (isLeftChild)
-                { 
-                    parent.Left = null;
-                }
-                else
-                { 
-                    parent.Right = null;
-                }
-            }
-            else if (current.Right == null)
-            { 
-                if (current == RootNode)
-                { 
-                    RootNode = current.Left;
-                }
-                else if (isLeftChild)
-                { 
-                    parent.Left = current.Left;
-                }
-                else
-                { 
-                    parent.Right = current.Right;
-                }
-            }
-            else if (current.Left == null)
-            {
-                if (current == RootNode)
-                {
-                    RootNode = current.Right;
-                }
-                else if (isLeftChild)
-                {
-                    parent.Left = parent.Right;
-                }
-                else
-                {
-                    parent.Right = current.Right;
-                }
+                oldTree = parent.Left;
             }
             else
             {
-                Node<T> successor = GetSuccessor(current);
-                Console.WriteLine("Need successor: " + successor.Data);
-                // Todo: Fix cause of infinite loop somewhere here
+                oldTree = parent.Right;
+            }
 
-                if (current == RootNode)
+            foreach (T newValue in EnumerableInOrder(oldTree))
+            {
+                if (newValue.Equals(value))
                 {
-                    RootNode = successor;
+                    continue;
                 }
-                else if (isLeftChild)
+
+                if (isLeftChild)
                 {
-                    parent.Left = successor;
+                    Insert(newValue, ref newTree);
                 }
                 else
                 {
-                    parent.Right = successor;
+                    Insert(newValue, ref newTree);
                 }
-                successor.Left = current.Left;
             }
+
+            if (isLeftChild)
+            {
+                parent.Left = newTree;
+            }
+            else
+            {
+                parent.Right = newTree;
+            }
+
             return true;
         }
 
