@@ -26,6 +26,7 @@ namespace TestSuperLib
 
             DoublyLinkedList<int> doubly = new DoublyLinkedList<int>();
             CircularLinkedList<int> circular = new CircularLinkedList<int>();
+            SuperLib.Collections.LinkedList.LinkedList<int> linked = new SuperLib.Collections.LinkedList.LinkedList<int>();
 
             int noItems = 70;
 
@@ -40,11 +41,13 @@ namespace TestSuperLib
 
             doubly.InsertFirst(array[0]);
             circular.InsertFirst(array[0]);
+            linked.InsertFirst(array[0]);
 
             for (int i = 1; i < noItems; i++)
             {
                 doubly.Insert(array[i], previous);
                 circular.Insert(array[i], previous);
+                linked.Insert(array[i], previous);
                 previous = array[i];
             }
 
@@ -53,6 +56,23 @@ namespace TestSuperLib
             foreach (var i in array)
             {
                 log(i + " ");
+            }
+
+            log("\r\nLinked list:\r\n");
+
+            foreach (var i in linked.GetEnumerable())
+            {
+                log(i + " ");
+            }
+
+            log("\r\nLinked list iterator:\r\n");
+
+            LinkedListIterator<int> iterator = new LinkedListIterator<int>(linked);
+
+            while (!iterator.EndReached)
+            {
+                log(iterator.Current + " ");
+                iterator.NextLink();
             }
 
             log("\r\nDoubly linked list:\r\n");

@@ -105,7 +105,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(846, 405);
+            this.ClientSize = new System.Drawing.Size(846, 188);
             this.Controls.Add(this.btnTestBinarySearchTree);
             this.Controls.Add(this.btnLinkedCollections);
             this.Controls.Add(this.btnCollections);

@@ -10,7 +10,7 @@ namespace SuperLib.Collections.LinkedList
     /// Iterator for a LinkedList iterating over each link
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    class LinkedListIterator<T>
+    public class LinkedListIterator<T>
     {
         // Inner is using the normal LinkedList
         private LinkedList<T> _innerLinkedList;
@@ -89,6 +89,6 @@ namespace SuperLib.Collections.LinkedList
         /// <summary>
         /// Check if the end is reached
         /// </summary>
-        public bool EndReached => _currentNode.Link == null;
+        public bool EndReached => _currentNode == null;
     }
 }

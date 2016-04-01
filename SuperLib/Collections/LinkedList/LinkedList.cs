@@ -41,7 +41,7 @@ namespace SuperLib.Collections.LinkedList
             Node<T> newNode = new Node<T>(newItem);
 
             _header.Link = newNode;
-            newNode.Link = _header;
+            //newNode.Link = _header;
         }
 
         /// <summary>
@@ -105,10 +105,10 @@ namespace SuperLib.Collections.LinkedList
         {
             Node<T> current = _header;
 
-            while (!Equals(current.Link, default(T)))
+            while (current != null)
             {
                 current = current.Link;
-                if (!Equals(current.Element, default(T))) yield return current.Element;
+                if (current != null) yield return current.Element;
             }
         }
     }

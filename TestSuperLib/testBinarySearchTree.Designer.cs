@@ -39,7 +39,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.btnDelete = new System.Windows.Forms.Button();
             this.numericUpDownDelete = new System.Windows.Forms.NumericUpDown();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRandomStart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRandomStop)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownNoItems)).BeginInit();
@@ -188,19 +187,11 @@
             0,
             0});
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(16, 343);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 26);
-            this.textBox1.TabIndex = 11;
-            // 
             // testBinarySearchTree
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1142, 639);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.numericUpDownDelete);
@@ -235,7 +226,6 @@
         private System.Windows.Forms.TextBox Output;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnDelete;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.NumericUpDown numericUpDownDelete;
     }
 }
